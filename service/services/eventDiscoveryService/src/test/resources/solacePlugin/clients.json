@@ -1,0 +1,49 @@
+{
+    "request": "https://solacehost:943/SEMP/v2/monitor/msgVpns/myvpn/clients?select=clientName,clientUsername,clientAddress,aclProfileName,clientProfileName&count=20",
+    "response": {
+        "data": [
+            {
+                "aclProfileName": "default",
+                "clientAddress": "76.68.81.189:58608",
+                "clientName": "gregmeldrum-2727.local/75057/#00230001/f9YkNyFR7F",
+                "clientProfileName": "default",
+                "clientUsername": "solace-cloud-client"
+            },
+            {
+                "aclProfileName": "default",
+                "clientAddress": "76.68.81.189:58897",
+                "clientName": "solclientjs/chrome-83.0.4103-OSX-10.13.6/1495049266/0001",
+                "clientProfileName": "default",
+                "clientUsername": "solace-cloud-client"
+            },
+            {
+                "aclProfileName": "#acl-profile",
+                "clientAddress": "127.0.0.1:54932",
+                "clientName": "#client",
+                "clientProfileName": "#client-profile",
+                "clientUsername": "#client-username"
+            },
+            {
+                "aclProfileName": "#acl-profile",
+                "clientAddress": "N/A",
+                "clientName": "#rdp/Greg1",
+                "clientProfileName": "#client-profile",
+                "clientUsername": "#rdp/Greg1"
+            }
+        ],
+        "links": [
+            {},
+            {},
+            {},
+            {},
+            {}
+        ],
+        "meta": {
+            "request": {
+                "method": "GET",
+                "uri": "https://mr1k9czsylgsnj.messaging.solace.cloud:943/SEMP/v2/monitor/msgVpns/greg-s-ivmr/clients?select=clientName,clientUsername,clientAddress&count=10"
+            },
+            "responseCode": 200
+        }
+    }
+}

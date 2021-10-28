@@ -1,0 +1,92 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "test",
+  "properties": {
+    "data": {
+      "$id": "#/properties/data",
+      "title": "data schema",
+      "type": "object",
+      "properties": {
+        "duration": {
+          "$id": "#/properties/duration",
+          "title": "duration schema",
+          "type": "number"
+        },
+        "jobId": {
+          "$id": "#/properties/jobId",
+          "title": "jobId schema",
+          "type": "string"
+        },
+        "someBool": {
+          "$id": "#/properties/someBool",
+          "title": "someBool schema",
+          "type": "boolean"
+        },
+        "subscriptions": {
+          "$id": "#/properties/subscriptions",
+          "title": "subscriptions schema",
+          "type": "array",
+          "items": {
+            "$id": "#/properties/subscriptions/items",
+            "title": " items schema ",
+            "type": "string"
+          }
+        },
+        "operationType": {
+          "$id": "#/properties/operationType",
+          "title": "operationType schema",
+          "type": "string"
+        },
+        "vmr": {
+          "$id": "#/properties/vmr",
+          "title": "vmr schema",
+          "type": "object",
+          "properties": {
+            "someNull": {
+              "$id": "#/properties/vmr/someNull",
+              "title": "someNull schema",
+              "type": "null"
+            },
+            "clientUsername": {
+              "$id": "#/properties/vmr/clientUsername",
+              "title": "clientUsername schema",
+              "type": "string"
+            },
+            "msgVpn": {
+              "$id": "#/properties/vmr/msgVpn",
+              "title": "msgVpn schema",
+              "type": "string"
+            },
+            "host": {
+              "$id": "#/properties/vmr/host",
+              "title": "host schema",
+              "type": "string"
+            },
+            "type": {
+              "$id": "#/properties/vmr/type",
+              "title": "type schema",
+              "type": "string"
+            },
+            "clientPassword": {
+              "$id": "#/properties/vmr/clientPassword",
+              "title": "clientPassword schema",
+              "type": "string"
+            },
+            "anotherNull": {
+              "$id": "#/properties/vmr/anotherNull",
+              "title": "anotherNull schema",
+              "type": "null"
+            }
+          }
+        },
+        "type": {
+          "$id": "#/properties/type",
+          "title": "type schema",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

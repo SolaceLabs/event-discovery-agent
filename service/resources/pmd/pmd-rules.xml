@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<ruleset name="Custom ruleset">
+
+    <!-- The PMD default rule sets -->
+    <rule ref="rulesets/java/basic.xml">
+        <exclude name="CollapsibleIfStatements" /><!-- have to eventually consider this rule -->
+        <exclude name="AvoidUsingOctalValues" />
+    </rule>
+    <!-- <rule ref="rulesets/java/naming.xml"/> -->
+    <rule ref="rulesets/java/unusedcode.xml" />
+    <!-- Braces -->
+    <rule ref="rulesets/java/braces.xml" />
+
+    <!-- Clone Implementation -->
+    <rule ref="rulesets/java/clone.xml" />
+
+    <!-- Code Size -->
+    <rule ref="rulesets/java/codesize.xml">
+        <exclude name="NPathComplexity" />
+        <exclude name="TooManyFields" />
+        <exclude name="CyclomaticComplexity" />
+        <exclude name="ModifiedCyclomaticComplexity" />
+        <exclude name="TooManyMethods" /><!-- have to eventually consider this rule -->
+        <exclude name="StdCyclomaticComplexity" />
+        <exclude name="ExcessiveMethodLength" /><!-- have to eventually consider this rule -->
+        <exclude name="NcssMethodCount" />
+    </rule>
+    
+    <!-- Controversial Rules -->
+    <rule ref="rulesets/java/controversial.xml">
+        <exclude name="OnlyOneReturn" />
+        <exclude name="AtLeastOneConstructor" />
+        <exclude name="BooleanInversion" />
+        <exclude name="AvoidFinalLocalVariable" />
+        <exclude name="AvoidUsingVolatile" />
+        <exclude name="DataflowAnomalyAnalysis" />
+        <exclude name="UnnecessaryParentheses" />
+        <exclude name="AvoidPrefixingMethodParameters" />
+        <exclude name="AvoidLiteralsInIfCondition" />
+        <exclude name="UseObjectForClearerAPI" />
+        <exclude name="UseConcurrentHashMap" />
+
+    </rule>
+
+    <!-- Coupling -->
+    <rule ref="rulesets/java/coupling.xml">
+        <exclude name="LawOfDemeter" />
+        <exclude name="LoosePackageCoupling" />
+        <exclude name="ExcessiveImports" />
+    </rule>
+
+    <!-- Design -->
+    <!-- <rule ref="rulesets/java/design.xml">
+        <exclude name="AvoidDeeplyNestedIfStmts" />
+        <exclude name="UnnecessaryLocalBeforeReturn" />
+        <exclude name="UseVarargs" />
+        <exclude name="AvoidReassigningParameters" />
+        <exclude name="UseUtilityClass" />
+    </rule> -->
+
+    <!-- Finalizers -->
+    <rule ref="rulesets/java/finalizers.xml" />
+
+    <!-- Imports -->
+    <rule ref="rulesets/java/imports.xml">
+        <exclude name="TooManyStaticImports" />
+    </rule>
+
+    <!-- J2EE -->
+    <!-- <rule ref="rulesets/java/j2ee.xml" /> -->
+
+    <!-- JavaBeans -->
+    <!-- <rule ref="rulesets/java/javabeans.xml" /> -->
+
+    <!-- Useful if unit tests are checked -->
+    <!-- <rule ref="rulesets/java/junit.xml"/> -->
+
+    <!-- Java Logging -->
+    <!-- <rule ref="rulesets/java/logging-java.xml"/> -->
+
+    <!-- Optimizations -->
+    <!-- <rule ref="rulesets/java/optimizations.xml">
+        <exclude name="LocalVariableCouldBeFinal" />
+        <exclude name="MethodArgumentCouldBeFinal" />
+    </rule> -->
+
+    <!-- String and Stringbuffer -->
+    <rule ref="rulesets/java/strings.xml">
+        <exclude name="AvoidDuplicateLiterals" />
+        <exclude name="StringInstantiation" />
+        <exclude name="InsufficientStringBufferDeclaration" />
+        <exclude name="ConsecutiveLiteralAppends" />
+        <exclude name="ConsecutiveAppendsShouldReuse" />
+    </rule>
+
+    <!-- Type Resolution -->
+    <rule ref="rulesets/java/typeresolution.xml">
+        <exclude name="SignatureDeclareThrowsException" />
+    </rule>
+
+    <!-- Unnecessary -->
+    <rule ref="rulesets/java/unnecessary.xml">
+        <exclude name="UselessParentheses" />
+    </rule>
+
+    <!-- http://pmd.sourceforge.net/rules/java/sunsecure.html -->
+    <rule ref="rulesets/java/sunsecure.xml">
+        <exclude name="MethodReturnsInternalArray" />
+        <exclude name="ArrayIsStoredDirectly" />
+    </rule>
+
+    <!-- Added the ruleset for lombok -->
+    <rule ref="rulesets/java/unusedcode.xml/UnusedPrivateField">
+    <properties>
+        <property name="violationSuppressXPath"
+            value="//ClassOrInterfaceBodyDeclaration//FieldDeclaration[//TypeDeclaration//MarkerAnnotation//Name[@Image='Getter']
+             | //TypeDeclaration//MarkerAnnotation//Name[@Image='Setter'] | //TypeDeclaration//MarkerAnnotation//Name[@Image='Data']]"/>
+    </properties>
+</rule>
+</ruleset>

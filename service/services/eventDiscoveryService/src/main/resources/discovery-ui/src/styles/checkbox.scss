@@ -1,0 +1,39 @@
+.check-box {
+	position: relative;	  
+	label {
+		background-color: white;
+		border: 1px solid rgba(0, 0, 0, 0.35);
+		border-radius: 50%;
+		cursor: pointer;
+		height: 15px;
+		width: 15px;
+		left: 0;
+		top: 0;
+		position: absolute;
+	}
+	
+	label:after {
+		content: "";
+		border: 4px solid white;
+		border-radius: 50%;
+		cursor: pointer;
+		height: 7px;
+		width: 7px;
+		left: 0;
+		top: 0;
+		position: absolute;
+	}
+	
+	input[type="checkbox"] {
+		visibility: hidden;
+	}
+	
+	input[type="checkbox"]:checked + label {
+		background: #00c895;
+		height: 15px;
+		width: 15px;
+
+	}
+	
+	
+}

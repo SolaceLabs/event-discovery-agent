@@ -1,0 +1,8 @@
+node_modules
+dist
+.idea
+.DS_STORE
+.project
+.settings/*
+.vscode/*
+

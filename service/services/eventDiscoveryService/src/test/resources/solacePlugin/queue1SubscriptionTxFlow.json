@@ -1,0 +1,18 @@
+{
+    "request": "https://solacehost:943/SEMP/v2/monitor/msgVpns/myvpn/queues/greg1/txFlows?select=clientName&count=20",
+    "response": {
+        "data": [
+            {
+                "clientName": "gregmeldrum-2727.local/75057/#00230001/f9YkNyFR7F"
+            }
+        ],
+        "links": [],
+        "meta": {
+            "request": {
+                "method": "GET",
+                "uri": "https://mroyppj81pus7.messaging.solace.cloud:943/SEMP/v2/monitor/msgVpns/greg-s-ivmr/queues/greg1/txFlows"
+            },
+            "responseCode": 200
+        }
+    }
+}

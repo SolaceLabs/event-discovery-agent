@@ -1,0 +1,46 @@
+{
+    "request": "https://solacehost:943/SEMP/v2/monitor/msgVpns/myvpn/clients/solclientjs%2Fchrome-83.0.4103-OSX-10.13.6%2F1495049266%2F0001/subscriptions?select=subscriptionTopic&count=20",
+    "response": {
+        "data": [
+            {
+                "clientName": "solclientjs/chrome-83.0.4103-OSX-10.13.6/1495049266/0001",
+                "subscriptionTopic": "#P2P/v:single-aws-us-east-1b-1k9czsylgsnj/Dr2lNqxz/solclientjs/chrome-83.0.4103-OSX-10.13.6/1495049266/0001/>",
+                "dtoPriority": "DA",
+                "msgVpnName": "greg-s-ivmr",
+                "sequenceNum": 0
+            },
+            {
+                "clientName": "solclientjs/chrome-83.0.4103-OSX-10.13.6/1495049266/0001",
+                "subscriptionTopic": ">",
+                "dtoPriority": "DA",
+                "msgVpnName": "greg-s-ivmr",
+                "sequenceNum": 2
+            },
+            {
+                "clientName": "solclientjs/chrome-83.0.4103-OSX-10.13.6/1495049266/0001",
+                "subscriptionTopic": "#noexport/#share/shareId1/acme/>",
+                "dtoPriority": "DA",
+                "msgVpnName": "greg-s-ivmr",
+                "sequenceNum": 3
+            }
+        ],
+        "links": [
+            {
+                "uri": "https://mr1k9czsylgsnj.messaging.solace.cloud:943/SEMP/v2/monitor/msgVpns/greg-s-ivmr/clients/solclientjs%2Fchrome-83.0.4103-OSX-10.13.6%2F1495049266%2F0001/subscriptions/%23P2P%2Fv%3Asingle-aws-us-east-1b-1k9czsylgsnj%2FDr2lNqxz%2Fsolclientjs%2Fchrome-83.0.4103-OSX-10.13.6%2F1495049266%2F0001%2F%3E"
+            },
+            {
+                "uri": "https://mr1k9czsylgsnj.messaging.solace.cloud:943/SEMP/v2/monitor/msgVpns/greg-s-ivmr/clients/solclientjs%2Fchrome-83.0.4103-OSX-10.13.6%2F1495049266%2F0001/subscriptions/%3E"
+            },
+            {
+                "uri": "https://mr1k9czsylgsnj.messaging.solace.cloud:943/SEMP/v2/monitor/msgVpns/greg-s-ivmr/clients/solclientjs%2Fchrome-83.0.4103-OSX-10.13.6%2F1495049266%2F0001/subscriptions/acme%2F%3E"
+            }
+        ],
+        "meta": {
+            "request": {
+                "method": "GET",
+                "uri": "https://mr1k9czsylgsnj.messaging.solace.cloud:943/SEMP/v2/monitor/msgVpns/greg-s-ivmr/clients/solclientjs%2Fchrome-83.0.4103-OSX-10.13.6%2F1495049266%2F0001/subscriptions"
+            },
+            "responseCode": 200
+        }
+    }
+}

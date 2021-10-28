@@ -1,0 +1,275 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "discoveryEntity": {
+            "type": "object",
+            "properties": {
+                "additionalAttributes": {
+                    "existingJavaType": "java.util.Map<String, Object>",
+                    "type": "object"
+                }
+            }
+        },
+        "broker": {
+            "type": "object",
+            "extends": {
+                "$ref": "#/definitions/discoveryEntity"
+            },
+            "properties": {
+                "brokerType": {
+                    "type": "string"
+                },
+                "brokerName": {
+                    "type": "string"
+                }
+            }
+        },
+        "client": {
+            "type": "object",
+            "extends": {
+                "$ref": "#/definitions/discoveryEntity"
+            },
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "channel": {
+            "type": "object",
+            "extends": {
+                "$ref": "#/definitions/discoveryEntity"
+            },
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "additionalAttributes": {
+                    "existingJavaType": "java.util.Map<String, Object>",
+                    "type": "object"
+                }
+            }
+        },
+        "subscription": {
+            "type": "object",
+            "extends": {
+                "$ref": "#/definitions/discoveryEntity"
+            },
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "matchCriteria": {
+                    "type": "string"
+                }
+            }
+        },
+        "schema": {
+            "type": "object",
+            "extends": {
+                "$ref": "#/definitions/discoveryEntity"
+            },
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "hints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/hint"
+                    }
+                },
+                "schemaType": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "primitive": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "clientToSubscriptionRelationship": {
+            "type": "object",
+            "extends": {
+                "$ref": "#/definitions/discoveryEntity"
+            },
+            "properties": {
+                "clientId": {
+                    "type": "string"
+                },
+                "subscriptionId": {
+                    "type": "string"
+                }
+            }
+        },
+        "channelToSubscriptionRelationship": {
+            "type": "object",
+            "extends": {
+                "$ref": "#/definitions/discoveryEntity"
+            },
+            "properties": {
+                "channelId": {
+                    "type": "string"
+                },
+                "subscriptionId": {
+                    "type": "string"
+                }
+            }
+        },
+        "clientToChannelRelationship": {
+            "type": "object",
+            "extends": {
+                "$ref": "#/definitions/discoveryEntity"
+            },
+            "properties": {
+                "clientId": {
+                    "type": "string"
+                },
+                "channelId": {
+                    "type": "string"
+                }
+            }
+        },
+        "channelToChannelRelationship": {
+            "type": "object",
+            "extends": {
+                "$ref": "#/definitions/discoveryEntity"
+            },
+            "properties": {
+                "sourceChannelId": {
+                    "type": "string"
+                },
+                "targetChannelId": {
+                    "type": "string"
+                }
+            }
+        },
+        "channelToSchemaRelationship": {
+            "type": "object",
+            "extends": {
+                "$ref": "#/definitions/discoveryEntity"
+            },
+            "properties": {
+                "channelId": {
+                    "type": "string"
+                },
+                "schemaId": {
+                    "type": "string"
+                }
+            }
+        },
+        "hint": {
+            "type": "object",
+            "extends": {
+                "$ref": "#/definitions/discoveryEntity"
+            },
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "any"
+                }
+            }
+        }
+    },
+    "type": "object",
+    "title": "Root for For Discovered Data",
+    "$id": "http://solace.com/discoveredData.json",
+    "properties": {
+        "discoveryData": {
+            "javaInterfaces": [
+                "com.event.discovery.agent.framework.model.EventDiscoveryObjects"
+            ],
+            "type": "object",
+            "properties": {
+                "version": {
+                    "type": "string",
+                    "default": "0.0.2"
+                },
+                "broker": {
+                    "$ref": "#/definitions/broker"
+                },
+                "clients": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/client"
+                    }
+                },
+                "channels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/channel"
+                    }
+                },
+                "subscriptions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscription"
+                    }
+                },
+                "schemas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/schema"
+                    }
+                },
+                "clientToSubscriptionRelationships": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/clientToSubscriptionRelationship"
+                    }
+                },
+                "channelToSubscriptionRelationships": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/channelToSubscriptionRelationship"
+                    }
+                },
+                "clientToChannelRelationships": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/clientToChannelRelationship"
+                    }
+                },
+                "channelToChannelRelationships": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/channelToChannelRelationship"
+                    }
+                },
+                "channelToSchemaRelationships": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/channelToSchemaRelationship"
+                    }
+                },
+                "additionalObjects": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "existingJavaType": "java.lang.Object"
+                    }
+                },
+                "additionalRelationships": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "existingJavaType": "java.lang.Object"
+                    }
+                }
+            }
+        }
+    }
+}

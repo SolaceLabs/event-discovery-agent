@@ -1,0 +1,29 @@
+@import '../../styles/variables.scss';
+
+.modal-content {
+	width: 100%;
+	.icon {
+		font-size: 22px;
+		height: 22px;
+		width: 22px;
+	}
+
+	.status-text {
+		white-space: nowrap;
+		line-height: 40px;
+	}
+
+	.button-container {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+		align-content: flex-end;
+		button {
+			padding-right: 0;
+			min-width: 110px;
+		}
+	}
+
+
+
+}

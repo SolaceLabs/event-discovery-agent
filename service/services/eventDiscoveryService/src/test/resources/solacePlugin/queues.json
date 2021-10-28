@@ -1,0 +1,28 @@
+{
+    "request": "https://solacehost:943/SEMP/v2/monitor/msgVpns/myvpn/queues?select=queueName,accessType,durable&count=20",
+    "response": {
+        "data": [
+            {
+                "accessType": "exclusive",
+                "durable": true,
+                "queueName": "greg1"
+            },
+            {
+                "accessType": "exclusive",
+                "durable": false,
+                "queueName": "gregsNewQueue"
+            }
+        ],
+        "links": [
+            {},
+            {}
+        ],
+        "meta": {
+            "request": {
+                "method": "GET",
+                "uri": "https://mroyppj81pus7.messaging.solace.cloud:943/SEMP/v2/monitor/msgVpns/greg-s-ivmr/queues?select=queueName,accessType,durable&count=20"
+            },
+            "responseCode": 200
+        }
+    }
+}

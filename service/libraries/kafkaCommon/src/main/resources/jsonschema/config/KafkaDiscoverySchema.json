@@ -1,0 +1,492 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "cluster": {
+      "properties": {
+        "cluster_id": {
+          "type": "string"
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/node"
+          }
+        }
+      }
+    },
+    "node": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "host": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer"
+        }
+      }
+    },
+    "topic": {
+      "properties": {
+        "topic_name": {
+          "type": "string"
+        },
+        "topic_config": {
+          "$ref": "#/definitions/topic_config"
+        },
+        "topic_schema": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key_schema": {
+                "$ref": "#/definitions/topic_schema"
+              },
+              "value_schema": {
+                "$ref": "#/definitions/topic_schema"
+              }
+            }
+          }
+        }
+      }
+    },
+    "topic_schema": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "schema_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schema_type": {
+          "type": "string",
+          "enum": [
+            "JSON",
+            "XML",
+            "XML-RPC",
+            "XDR",
+            "CloudEvents_binary",
+            "CloudEvents_structured",
+            "Protobuf",
+            "KRYO",
+            "BINARY",
+            "AVRO",
+            "THRIFT",
+            "SWIFT",
+            "Base64",
+            "Java",
+            "SOAP",
+            "YAML",
+            "ASN.1",
+            "CSV",
+            "STRING",
+            "UNKNOWN",
+            "NONE"
+          ]
+        },
+        "schema": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "topic_config": {
+      "type": "object",
+      "properties": {
+        "compression.type": {
+          "$ref": "#/definitions/topic_config_values_string"
+        },
+        "leader.replication.throttled.replicas": {
+          "$ref": "#/definitions/topic_config_values_string"
+        },
+        "message.downconversion.enable": {
+          "$ref": "#/definitions/topic_config_values_boolean"
+        },
+        "min.insync.replicas": {
+          "$ref": "#/definitions/topic_config_values_integer"
+        },
+        "segment.jitter.ms": {
+          "$ref": "#/definitions/topic_config_values_number"
+        },
+        "cleanup.policy": {
+          "$ref": "#/definitions/topic_config_values_string"
+        },
+        "flush.ms": {
+          "$ref": "#/definitions/topic_config_values_number"
+        },
+        "follower.replication.throttled.replicas": {
+          "$ref": "#/definitions/topic_config_values_string"
+        },
+        "segment.bytes": {
+          "$ref": "#/definitions/topic_config_values_integer"
+        },
+        "retention.ms": {
+          "$ref": "#/definitions/topic_config_values_number"
+        },
+        "flush.messages": {
+          "$ref": "#/definitions/topic_config_values_integer"
+        },
+        "message.format.version": {
+          "$ref": "#/definitions/topic_config_values_string"
+        },
+        "file.delete.delay.ms": {
+          "$ref": "#/definitions/topic_config_values_number"
+        },
+        "max.compaction.lag.ms": {
+          "$ref": "#/definitions/topic_config_values_number"
+        },
+        "max.message.bytes": {
+          "$ref": "#/definitions/topic_config_values_integer"
+        },
+        "min.compaction.lag.ms": {
+          "$ref": "#/definitions/topic_config_values_number"
+        },
+        "message.timestamp.type": {
+          "$ref": "#/definitions/topic_config_values_string"
+        },
+        "preallocate": {
+          "$ref": "#/definitions/topic_config_values_boolean"
+        },
+        "min.cleanable.dirty.ratio": {
+          "$ref": "#/definitions/topic_config_values_number"
+        },
+        "index.interval.bytes": {
+          "$ref": "#/definitions/topic_config_values_integer"
+        },
+        "unclean.leader.election.enable": {
+          "$ref": "#/definitions/topic_config_values_integer"
+        },
+        "retention.bytes": {
+          "$ref": "#/definitions/topic_config_values_integer"
+        },
+        "delete.retention.ms": {
+          "$ref": "#/definitions/topic_config_values_number"
+        },
+        "segment.ms": {
+          "$ref": "#/definitions/topic_config_values_number"
+        },
+        "message.timestamp.difference.max.ms": {
+          "$ref": "#/definitions/topic_config_values_number"
+        },
+        "segment.index.bytes": {
+          "$ref": "#/definitions/topic_config_values_integer"
+        }
+      }
+    },
+    "topic_config_values_string": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "Topic configuration value"
+        },
+        "Default": {
+          "type": "boolean",
+          "description": "Is this the default for the Topic value"
+        }
+      }
+    },
+    "topic_config_values_boolean": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "boolean",
+          "description": "Topic configuration value"
+        },
+        "Default": {
+          "type": "boolean",
+          "description": "Is this the default for the Topic value"
+        }
+      }
+    },
+    "topic_config_values_integer": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Topic configuration value"
+        },
+        "Default": {
+          "type": "boolean",
+          "description": "Is this the default for the Topic value"
+        }
+      }
+    },
+    "topic_config_values_number": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "Topic configuration value"
+        },
+        "Default": {
+          "type": "boolean",
+          "description": "Is this the default for the Topic value"
+        }
+      }
+    },
+    "topic_config_confluent": {
+      "type": "object",
+      "properties": {
+        "$ref": "#/definitions//topic_config",
+        "confluent.value.schema.validation": {
+          "$ref": "#/definitions/topic_config_values_boolean"
+        },
+        "confluent.placement.constraints": {
+          "$ref": "#/definitions/topic_config_values"
+        },
+        "confluent.key.schema.validation": {
+          "$ref": "#/definitions/topic_config_values"
+        }
+      }
+    },
+    "consumer_group": {
+      "type": "object",
+      "properties": {
+        "groupId": {
+          "type": "string"
+        },
+        "isSimpleConsumerGroup": {
+          "type": "boolean"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/consumer_group_members"
+          }
+        },
+        "partitionAssignor": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "coordinator": {
+          "type": "string"
+        },
+        "authorizedOperations": {
+          "type": "string"
+        },
+        "offsets": {
+          "$ref": "#/definitions/consumer_group_offsets"
+        }
+      }
+    },
+    "consumer_group_members": {
+      "type": "object",
+      "properties": {
+        "memberId": {
+          "type": "string"
+        },
+        "groupInstanceId": {
+          "type": "string"
+        },
+        "clientId": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "assignment": {
+          "$ref": "#/definitions/consumer_group_assignment"
+        }
+      }
+    },
+    "consumer_group_assignment": {
+      "type": "object",
+      "properties": {
+        "topicPartitions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "partitions": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "topic": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "consumer_group_offsets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string"
+          },
+          "partition": {
+            "type": "integer"
+          },
+          "offset": {
+            "type": "string",
+            "minimum": 0
+          },
+          "leaderEpoch": {
+            "type": "integer"
+          },
+          "metadata": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "kafka_acl": {
+      "type": "object",
+      "properties": {
+        "entry": {
+          "$ref": "#/definitions/kafka_acl_entry"
+        },
+        "pattern": {
+          "$ref": "#/definitions/kafka_acl_pattern"
+        }
+      }
+    },
+    "kafka_acl_entry": {
+      "type": "object",
+      "properties": {
+        "principal": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "operation": {
+          "type": "string"
+        },
+        "permissionType": {
+          "type": "string"
+        }
+      }
+    },
+    "kafka_acl_pattern": {
+      "type": "object",
+      "properties": {
+        "ResourcePattern": {
+          "type": "object",
+          "properties": {
+            "resourceType": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "paternType": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "kafka_connect": {
+      "type": "object",
+      "properties": {
+        "connector_name": {
+          "type": "string"
+        },
+        "connector_type": {
+          "type": "string",
+          "enum": [
+            "SOURCE",
+            "SINK"
+          ]
+        },
+        "connect_topic": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "connect_tasks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "task_id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "worker_id": {
+                "type": "string"
+              },
+              "task_state": {
+                "type": "string",
+                "enum": [
+                  "RUNNING",
+                  "FAILED",
+                  "PAUSED",
+                  "UNASSIGNED"
+                ]
+              }
+            }
+          }
+        },
+        "connect_properties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "prop_name": {
+                "type": "string"
+              },
+              "prop_value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "title": "Root for Kafka Discovered Data",
+  "$id": "http://solace.com/kafkadiscovereddata.json",
+  "properties": {
+    "kafka_discovery_data": {
+      "properties": {
+        "cluster": {
+          "$ref": "#/definitions/cluster"
+        },
+        "topic": {
+          "items": {
+            "$ref": "#/definitions/topic"
+          },
+          "type": "array"
+        },
+        "kafka_consumer_groups": {
+          "items": {
+            "$ref": "#/definitions/consumer_group"
+          },
+          "type": "array"
+        },
+        "kafka_acl": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/kafka_acl"
+          }
+        },
+        "kafka_connect": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/kafka_connect"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="LOG_LEVEL_PATTERN" value="%clr(%5p) %clr([%X{X-B3-TraceId:-}]){yellow}"/>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <springProfile name="container">
+        <appender name="CONSOLE-JSON" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+                <customFields>{"component":"event-discovery-agent"}</customFields>
+            </encoder>
+        </appender>
+
+        <root level="INFO">
+            <appender-ref ref="CONSOLE-JSON"/>
+        </root>
+
+        <logger name="org.springframework" level="WARN" additivity="false">
+            <appender-ref ref="CONSOLE-JSON"/>
+        </logger>
+
+        <logger name="com.event.discovery.agent" level="DEBUG" additivity="false">
+            <appender-ref ref="CONSOLE-JSON"/>
+        </logger>
+
+        <logger name="com.event.discovery.agent.base.rest.RestProxy" level="ERROR" additivity="false">
+            <appender-ref ref="CONSOLE-JSON"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="default, TEST, REALTEST, OFFLINETEST">
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+
+        <logger name="com.event.discovery.agent" level="DEBUG" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+
+        <logger name="com.event.discovery.agent.base.rest.RestProxy" level="ERROR" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+    </springProfile>
+
+</configuration>

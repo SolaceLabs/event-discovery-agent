@@ -1,0 +1,34 @@
+{
+    "request": "https://solacehost:943/SEMP/v2/monitor/msgVpns/myvpn/clientUsernames?select=aclProfileName,clientProfileName,clientUsername&count=20",
+    "response": {
+        "data": [
+            {
+                "aclProfileName": "#acl-profile",
+                "clientProfileName": "#client-profile",
+                "clientUsername": "#client-username"
+            },
+            {
+                "aclProfileName": "default",
+                "clientProfileName": "default",
+                "clientUsername": "default"
+            },
+            {
+                "aclProfileName": "default",
+                "clientProfileName": "default",
+                "clientUsername": "solace-cloud-client"
+            }
+        ],
+        "links": [
+            {},
+            {},
+            {}
+        ],
+        "meta": {
+            "request": {
+                "method": "GET",
+                "uri": "https://mroyppj81pus7.messaging.solace.cloud:943/SEMP/v2/monitor/msgVpns/greg-s-ivmr/clientUsernames?select=aclProfileName,clientProfileName,clientUsername&count=20"
+            },
+            "responseCode": 200
+        }
+    }
+}

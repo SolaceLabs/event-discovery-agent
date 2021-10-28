@@ -1,0 +1,26 @@
+{
+    "request": "https://solacehost:943/SEMP/v2/monitor/msgVpns/myvpn/clients/gregmeldrum-2727.local%2F75057%2F%2300230001%2Ff9YkNyFR7F/subscriptions?select=subscriptionTopic&count=20",
+    "response": {
+        "data": [
+            {
+                "clientName": "gregmeldrum-2727.local/75057/#00230001/f9YkNyFR7F",
+                "subscriptionTopic": "#P2P/v:single-aws-us-east-1b-1k9czsylgsnj/Dr2lNqxz/gregmeldrum-2727.local/75057/#00230001/f9YkNyFR7F/>",
+                "dtoPriority": "P1",
+                "msgVpnName": "greg-s-ivmr",
+                "sequenceNum": 0
+            }
+        ],
+        "links": [
+            {
+                "uri": "https://mr1k9czsylgsnj.messaging.solace.cloud:943/SEMP/v2/monitor/msgVpns/greg-s-ivmr/clients/gregmeldrum-2727.local%2F75057%2F%2300230001%2Ff9YkNyFR7F/subscriptions/%23P2P%2Fv%3Asingle-aws-us-east-1b-1k9czsylgsnj%2FDr2lNqxz%2Fgregmeldrum-2727.local%2F75057%2F%2300230001%2Ff9YkNyFR7F%2F%3E"
+            }
+        ],
+        "meta": {
+            "request": {
+                "method": "GET",
+                "uri": "https://mr1k9czsylgsnj.messaging.solace.cloud:943/SEMP/v2/monitor/msgVpns/greg-s-ivmr/clients/gregmeldrum-2727.local%2F75057%2F%2300230001%2Ff9YkNyFR7F/subscriptions"
+            },
+            "responseCode": 200
+        }
+    }
+}

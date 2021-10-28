@@ -1,0 +1,24 @@
+{
+    "request": "https://solacehost:943/SEMP/v2/monitor/msgVpns/myvpn/queues/gregsNewQueue/subscriptions?select=subscriptionTopic&count=20",
+    "response": {
+        "data": [
+            {
+                "subscriptionTopic": "newTopics1"
+            },
+            {
+                "subscriptionTopic": "another/subscription"
+            }
+        ],
+        "links": [
+            {},
+            {}
+        ],
+        "meta": {
+            "request": {
+                "method": "GET",
+                "uri": "https://mroyppj81pus7.messaging.solace.cloud:943/SEMP/v2/monitor/msgVpns/greg-s-ivmr/queues/gregsNewQueue/subscriptions?select=subscriptionTopic&count=20"
+            },
+            "responseCode": 200
+        }
+    }
+}

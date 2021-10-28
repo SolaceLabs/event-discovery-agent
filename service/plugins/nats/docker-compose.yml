@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  nats:
+    container_name: nats
+    image: nats
+    command: -js -m=8222
+    ports:
+      # for clients
+      - 4222:4222
+      # HTTP management port for information reporting
+      - 8222:8222

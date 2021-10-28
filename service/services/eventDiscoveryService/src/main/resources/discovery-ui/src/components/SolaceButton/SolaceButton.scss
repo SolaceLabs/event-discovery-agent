@@ -1,0 +1,246 @@
+@import '../../styles/variables.scss';
+
+.react-button {
+	user-select: none;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	height: 32px;
+	line-height: 32px;
+	border: 2px solid #00ad93;
+	border-radius: 4px;
+	color: #00ad93;
+	background: transparent;
+	font-size: 14px;
+	font-weight: 400 !important;
+	padding: 0 16px;
+	font-family: "Rubik", sans-serif;
+	min-width: 32px;
+
+	button {
+		padding: unset;
+	}
+	&:focus {
+		outline: none;
+		background: white;
+	}
+	&:disabled {
+		pointer-events: none;
+		background: unset;
+	}
+
+	&.old-style {
+		font-size: 14px;
+		font-weight: 400;
+		height: 32px;
+	}
+	.icon-svg {
+		display: flex;
+		width: 24px;
+		svg {
+			fill: #00ad93;
+		}
+	}
+	.label {
+		flex: 1 1 100px;
+		padding: 0 16px;
+		white-space: nowrap;
+		&.icon {
+			flex: auto;
+			padding-left: 4px;
+		}
+	}
+
+	&.call-to-action {
+		background: #00ad93;
+		color: white;
+		.icon-svg {
+			svg {
+				fill: white;
+			}
+		}
+		&:hover {
+			color: white;
+			background: #00ccad;
+			border: 2px solid #00ccad;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+		}
+
+		&:active {
+			background: #05bda1;
+			border: 2px solid #05bda1;
+		}
+
+		&:disabled {
+			background: rgba(0, 0, 0, 0.2);
+			border: 2px solid transparent;
+		}
+
+		&.dark-theme {
+			background: #00c895;
+			border: 2px solid #00c895;
+
+			&:hover {
+				background: #00ccad;
+				border: 2px solid #00ccad;
+				box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+			}
+			&:active {
+				background: #05bda1;
+				border: 2px solid #05bda1;
+			}
+			&:disabled {
+				color: rgba(255, 255, 255, 0.45);
+				background: rgba(0, 200, 149, 0.2);
+				border: 2px solid rgba(0, 200, 149, 0.2);
+				.icon-svg {
+					svg {
+						fill: rgba(255, 255, 255, 0.45);
+					}
+				}
+			}
+		}
+	}
+
+	&.outline {
+		&:hover {
+			background: rgba(0, 0, 0, 0.05);
+			color: #00ad93;
+			border: 2px solid #00ccad;
+		}
+		&:active {
+			background: #f9f9f9;
+		}
+		&:disabled {
+			color: rgba(0, 0, 0, 0.2);
+			border: 2px solid rgba(0, 0, 0, 0.1);
+			.icon-svg {
+				svg {
+					fill: rgba(0, 0, 0, 0.2);
+				}
+			}
+		}
+		&.dark-theme {
+			background: #474747;
+			color: #00c895;
+			&:hover {
+				color: #00c895;
+				background: rgba(255, 255, 255, 0.1);
+				border: 2px solid #00c895;
+			}
+			&:active {
+				background: rgba(255, 255, 255, 0.05);
+			}
+			&:disabled {
+				opacity: 0.45;
+				border: 2px solid rgba(0, 200, 149, 0.2);
+				.icon-svg {
+					svg {
+						fill: #00ad93;
+						opacity: 0.45;
+					}
+				}
+			}
+		}
+	}
+	&.text {
+		border: none;
+		&:hover {
+			color: #00ad93;
+			background: #f1f1f1;
+		}
+		&:active {
+			background: #f4f4f4;
+		}
+		&:disabled {
+			color: rgba(0, 0, 0, 0.2);
+			.icon-svg {
+				svg {
+					fill: rgba(0, 0, 0, 0.2);
+				}
+			}
+		}
+
+		&.dark-theme {
+			background: #474747;
+			color: #00c895;
+			&:hover {
+				color: #00c895;
+				background: rgba(255, 255, 255, 0.1);
+			}
+			&:active {
+				background: rgba(255, 255, 255, 0.05);
+			}
+			&:disabled {
+				opacity: 0.45;
+				.icon-svg {
+					svg {
+						fill: #00c895;
+						opacity: 0.45;
+					}
+				}
+			}
+		}
+	}
+	&.icon-only {
+		min-width: unset;
+		border: none;
+		border-radius: none;
+		padding: 0 4px;
+		.icon-svg {
+			width: unset;
+			padding: 4px;
+			svg {
+				fill: rgba(0, 0, 0, 0.5);
+			}
+			&:hover {
+				svg {
+					fill: $grey7;
+				}
+			}
+		}
+		&:hover {
+			background: #eee;
+		}
+		&:active {
+			background: #f9f9f9;
+		}
+		&:disabled {
+			.icon-svg {
+				svg {
+					fill: rgba(0, 0, 0, 0.2);
+				}
+			}
+		}
+		&.dark-theme {
+			color: white;
+			background: #474747;
+			.icon-svg {
+				svg {
+					fill: white;
+				}
+			}
+			&:hover {
+				background: rgba(255, 255, 255, 0.1);
+			}
+			&:active {
+				background: rgba(255, 255, 255, 0.05);
+			}
+			&:disabled {
+				.icon-svg {
+					svg {
+						color: rgba(255, 255, 255, 1);
+						opacity: 0.2;
+					}
+				}
+			}
+		}
+	}
+}
+
+.solace-button-active {
+	.button {
+		background: #eee;
+	}
+}

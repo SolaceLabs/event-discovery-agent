@@ -1,0 +1,14 @@
+{
+    "request": "https://solacehost:943/SEMP/v2/monitor/msgVpns/myvpn/topicEndpoints/greg1/txFlows?select=clientName&count=20",
+    "response": {
+        "data": [],
+        "links": [],
+        "meta": {
+            "request": {
+                "method": "GET",
+                "uri": "https://mroyppj81pus7.messaging.solace.cloud:943/SEMP/v2/monitor/msgVpns/greg-s-ivmr/topicEndpoints/gregsDurableTopic/txFlows?select=clientName&count=20"
+            },
+            "responseCode": 200
+        }
+    }
+}

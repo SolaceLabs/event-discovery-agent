@@ -1,0 +1,21 @@
+{
+  "data": {
+    "duration": 20,
+    "jobId": "1aqp02wi1x3",
+    "someBool": true,
+    "subscriptions": [
+      "sfmta/\u003e"
+    ],
+    "operationType": "eventDiscovery",
+    "vmr": {
+      "someNull": null,
+      "clientUsername": "solace-cloud-client",
+      "msgVpn": "myMessagingVpn",
+      "host": "tcps://notareal.messaging.solace.cloud:55443",
+      "type": "vmr",
+      "clientPassword": "mySuperSecretPasswordWhichIsNotARealPasswordByTheWay",
+      "anotherNull": null
+    },
+    "type": "eventListenerOperation"
+  }
+}

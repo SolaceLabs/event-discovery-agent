@@ -1,0 +1,33 @@
+{
+    "request": "https://solacehost:943/SEMP/v2/monitor/msgVpns/myvpn/topicEndpoints?select=topicEndpointName,destinationTopic,accessType,durable&count=20",
+    "response": {
+        "data": [
+            {
+                "accessType": "exclusive",
+                "destinationTopic": "",
+                "durable": false,
+                "topicEndpointName": "greg1"
+            },
+            {
+                "accessType": "exclusive",
+                "destinationTopic": "gregsTopic/*/1",
+                "durable": true,
+                "topicEndpointName": "gregsDurableTopic"
+            }
+        ],
+        "links": [
+            {},
+            {},
+            {},
+            {},
+            {}
+        ],
+        "meta": {
+            "request": {
+                "method": "GET",
+                "uri": "https://mroyppj81pus7.messaging.solace.cloud:943/SEMP/v2/monitor/msgVpns/greg-s-ivmr/topicEndpoints?select=topicEndpointName,destinationTopic,accessType,durable"
+            },
+            "responseCode": 200
+        }
+    }
+}

@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+.results-content {
+
+	.topics {
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		border-radius: 5px;
+		max-height: 100px;
+		padding: 10px;
+		margin: 10px 0 20px;
+		color: rgba(0, 0, 0, 0.5);
+		overflow: scroll;
+	}
+
+}

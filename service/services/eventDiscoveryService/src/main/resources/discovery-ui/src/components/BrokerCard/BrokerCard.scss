@@ -1,0 +1,66 @@
+@import '../../styles/variables.scss';
+@import '../../styles/styles.scss';
+
+.broker-card {
+	display: flex;
+	border-radius: 5px;
+	background: white;
+	height: 120px;
+	margin: 10px auto;
+	cursor: pointer;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 4px 4px $grey1;
+	text-decoration: none;
+	.broker-logo-container {
+		display: flex;
+		flex-grow: 1;
+		align-items: center;
+		padding: 10px 0 10px 30px;
+		max-width: 220px;
+		overflow: hidden;
+		.broker-logo {
+			width: 180px;
+			height: 93px;
+			opacity: 0.2;
+			&.solace-logo {
+				height: 50px;
+			}
+			&.kafka-logo, &.generic-logo {
+				padding-left: 30px;
+				height: 60px;
+				padding-bottom: 10px;
+			}
+		}
+	}
+	
+	.details {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		flex-grow: 3;
+		padding-left: 40px;
+		.broker-title {
+			@include title-text;
+			text-transform: capitalize;
+			display: flex;
+			padding: 0 10px;
+		}
+	
+		.broker-description {
+			@include body-text;
+			display: flex;
+			padding: 0 10px;
+			opacity: 0.8;
+		}
+	}
+	.tag {
+		font-size: 12px;
+		padding: 0px 8px;
+		border-radius: 9px;
+		margin-left: 10px;
+		border: 1px solid gray;
+		right: 0;
+		top: -4px;
+		color: #00ad93;
+	}
+}

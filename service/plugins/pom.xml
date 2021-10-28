@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.event.discovery.agent.plugins</groupId>
+    <artifactId>agent-plugins</artifactId>
+    <name>Event Discovery Agent - Plugins</name>
+    <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>com.event.discovery.agent.libraries</groupId>
+            <artifactId>framework-plugin</artifactId>
+            <version>0.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>com.event.discovery.agent</groupId>
+        <artifactId>event-discovery-agent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <modules>
+        <module>solace</module>
+        <module>rabbitmq</module>
+        <module>hivemq</module>
+        <module>nats</module>
+        <module>google</module>
+        <module>kafkaApache</module>
+        <module>kafkaConfluent</module>
+    </modules>
+</project>

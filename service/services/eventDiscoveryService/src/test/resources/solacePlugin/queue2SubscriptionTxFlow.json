@@ -1,0 +1,20 @@
+{
+    "request": "https://solacehost:943/SEMP/v2/monitor/msgVpns/myvpn/queues/gregsNewQueue/txFlows?select=clientName&count=20",
+    "response": {
+        "data": [
+            {
+                "clientName": "gregmeldrum-2727.local/75057/#00230001/f9YkNyFR7F"
+            }
+        ],
+        "links": [
+            {}
+        ],
+        "meta": {
+            "request": {
+                "method": "GET",
+                "uri": "https://mr1k9czsylgsnj.messaging.solace.cloud:943/SEMP/v2/monitor/msgVpns/greg-s-ivmr/queues/%23P2P%2FQTMP%2Fv%3Asingle-aws-us-east-1b-1k9czsylgsnj%2Facme%2Frideshare%2Fdriver%2Frequested%2F0.0.1.anon%2F394997bf-a94a-4c5c-83ac-17e7d35a3b67/txFlows?select=clientName"
+            },
+            "responseCode": 200
+        }
+    }
+}

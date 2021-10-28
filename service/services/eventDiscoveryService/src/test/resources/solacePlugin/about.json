@@ -1,0 +1,19 @@
+{
+    "request": "https://solacehost:943/SEMP/v2/config/about/api",
+    "response": {
+        "data": {
+            "platform": "VMR",
+            "sempVersion": "2.13"
+        },
+        "links": {
+            "uri": "https://mr1k9czsylgsnj.messaging.solace.cloud:943/SEMP/v2/config/about/api"
+        },
+        "meta": {
+            "request": {
+                "method": "GET",
+                "uri": "https://mr1k9czsylgsnj.messaging.solace.cloud:943/SEMP/v2/config/about/api"
+            },
+            "responseCode": 200
+        }
+    }
+}

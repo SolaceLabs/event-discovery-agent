@@ -1,0 +1,45 @@
+// Style Guide
+
+//Backgrounds
+$background-1: #f9f9f9;
+$background-2: #2d2d2d;
+$background-3: #474747;
+
+//Shadow
+$shadow-1: 0 1px 4px rgba(0, 0, 0, 0.2);
+
+//Colors
+$grey1: rgba(0, 0, 0, 0.1);
+$grey2: rgba(0, 0, 0, 0.2);
+$grey3: rgba(0, 0, 0, 0.35);
+$grey4: rgba(0, 0, 0, 0.5);
+$grey5: rgba(0, 0, 0, 0.65);
+$grey6: rgba(0, 0, 0, 0.7);
+$grey7: rgba(0, 0, 0, 0.8);
+
+$greyOnDark: #828282;
+$raven: #7b7c7d;
+
+$green1: #00c895;
+$green2: #00ad93;
+$green3: #009193;
+$green4: #4b6c6c;
+
+$red-alert: #d0021b;
+$green-ok: #7ed321;
+$yellow-warn: #f3aa24;
+
+//Gradient
+$gradient-green: linear-gradient(290deg, #00ad93, #00c895);
+
+//Font Sizes
+$font-xxsmall: 12px;
+$font-xsmall: 13px;
+$font-small: 14px;
+$font-medium: 16px;
+$font-large: 20px;
+$font-xlarge: 24px;
+$font-xxlarge: 28px;
+
+//Custom element pre-defined sizes
+$detail-panel-width: 380px;

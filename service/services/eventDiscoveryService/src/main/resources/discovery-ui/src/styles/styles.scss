@@ -1,0 +1,25 @@
+@mixin header-text {
+	font-size: 20px;
+	color: rgba(0, 0, 0, 0.65);
+}
+
+@mixin sub-header-text {
+	line-height: 19px;
+	font-size: 18px;
+	color: rgba(0, 0, 0, 0.65);
+}
+
+@mixin title-text {
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 28px;
+	font-style: normal;
+	color: $grey7;
+}
+
+
+@mixin body-text {
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.65);
+}
+

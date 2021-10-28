@@ -1,0 +1,18 @@
+@import '../../styles/styles.scss';
+@import '../../styles/variables.scss';
+
+
+.landing-page {
+	display: flex;
+	flex-direction: column;
+	width: 700px;
+
+	.landing-page-body {
+		padding: 40px 0;
+		.title {
+			@include sub-header-text;
+		}
+	}
+
+
+}

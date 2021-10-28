@@ -1,0 +1,144 @@
+@import './styles/variables.scss';
+@import './styles/checkbox.scss';
+@import './styles/buttons.scss';
+
+
+body {
+	margin: unset;
+	background: #f9f9f9;
+	line-height: 1.4;
+	min-width: 800px;
+	outline: none;
+}
+
+a {
+	color: $green2;
+	&:hover{
+		color: $green1;
+	}
+	text-decoration: none;
+	cursor: pointer;
+	&:-webkit-any-link {
+		text-decoration: none;
+		color: $green2;
+	}
+
+	
+}
+
+
+
+input:-webkit-autofill {
+	&,
+	&:hover,
+	&:focus,
+	&:active {
+		-webkit-box-shadow: inset 0 0 0 500px white !important;
+	}
+}
+
+.discovery-ui {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	font-family: Rubik, sans-serif;
+	background: #f9f9f9;
+	font-size: 14px;
+	outline: none;
+}
+
+.link {
+	text-decoration: underline;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.success {
+	color: $green1;
+}
+
+.warning {
+	color: $yellow-warn;
+}
+
+.danger {
+	color: red;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+}
+
+.flex-end {
+	display: flex;
+	justify-content: end;
+}
+
+.flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.flex-space {
+	display: flex;
+	justify-content: space-between;
+}
+
+
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.width100 {
+	width: 100%;
+}
+
+.mb5 {
+	margin-bottom: 5px;
+}
+
+.pt5 {
+	padding-top: 5px;
+}
+
+.mt20 {
+	margin-top: 20px;
+}
+
+.mt20 {
+	margin-bottom: 20px;
+}
+
+
+.mt40 {
+	margin-top: 40px;
+}
+
+.mr10 {
+	margin-right: 10px;
+}
+
+.ml5{
+	margin-left: 5px;
+}
+
+.ml10{
+	margin-left: 10px;
+}
+
+.pl200 {
+	padding-left: 200px;
+}
+
+.f-20{
+	font-size: 20px;
+}

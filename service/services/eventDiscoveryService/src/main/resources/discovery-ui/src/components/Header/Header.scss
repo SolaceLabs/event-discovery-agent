@@ -1,0 +1,61 @@
+@import '../../styles/variables.scss';
+
+.header {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	background: #474747;
+	color: #f9f9f9;
+	font-size: 28px;
+	font-weight: 300;
+	padding: 10px 0;
+	white-space: nowrap;
+	height: 40px;
+	.content {
+		display: flex;
+		min-width: 700px;
+		text-transform: capitalize;
+		.title {
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			.discovery-icon {
+				padding-right: 10px;
+				padding-left: 15px;
+			}
+			.back-arrow {
+				padding-top: 5px;
+				padding-bottom: 5px;
+				padding-right: 15px;
+				cursor: pointer;
+			}
+			.border-line {
+				border-right: 1px solid grey;
+				height:30px;
+			}
+			.tag {
+				font-size: 12px;
+				padding: 5px 8px;
+				border-radius: 9px;
+				margin-left: 10px;
+				border: 1px solid gray;
+				color: #00ad93;
+				margin-top: 5px;
+			}
+			a{
+				margin-top: 10px;
+			}
+		}
+	}
+	.file-upload {
+		input[type="file"] {
+			display: none;
+		}
+		height: 28px !important;
+		line-height: 28px !important;
+		position: absolute;
+		right: 0;
+		margin-right: 10px;
+		cursor: pointer;
+	}
+}
