@@ -1,0 +1,7 @@
+*.iml
+.idea
+.java-version
+.DS_Store
+target
+application.properties
+
