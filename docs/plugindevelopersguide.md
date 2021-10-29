@@ -7,7 +7,7 @@
 
 ## Get the Code
 ```
-git clone https://github.com/SolaceDev/event-discovery-agent.git
+git clone https://github.com/SolaceLabs/event-discovery-agent.git
 ```
 
 ## Compile/Build
