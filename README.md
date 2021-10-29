@@ -26,7 +26,7 @@ The discovery agent comes with the following event or message broker plugins inc
 ### Cloning and Building
 ```
 git clone https://github.com/SolaceLabs/event-discovery-agent.git
-cd discovery-agent-open-resource/service
+cd event-discovery-agent/service
 mvn clean install
 ```
 
