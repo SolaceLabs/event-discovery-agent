@@ -16,8 +16,6 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Map;
-
 import static io.restassured.RestAssured.config;
 import static io.restassured.RestAssured.given;
 import static io.restassured.config.ObjectMapperConfig.objectMapperConfig;
@@ -57,52 +55,11 @@ public abstract class BaseIT {
         return givenInternal().config(restAssuredConfig).when().get(url, pathParams).prettyPeek().then();
     }
 
-    protected ValidatableResponse getWithTokenAndThen(String token, String url, String... pathParams) {
-        return givenInternal(token).config(restAssuredConfig).when().get(url, pathParams).prettyPeek().then();
-    }
-
-    protected ValidatableResponse getAndThen(Map<String, Object> params, String url, String... pathParams) {
-        return givenInternal().config(restAssuredConfig).params(params).when().get(url, pathParams).prettyPeek().then();
-    }
-
-    protected ValidatableResponse putAndThen(Object body, String url, String... pathParams) {
-        return givenInternal().config(restAssuredConfig).body(body).when().put(url, pathParams).prettyPeek().then();
-    }
-
-    protected ValidatableResponse putWithTokenAndThen(String token, Object body, String url, String... pathParams) {
-        return givenInternal(token).config(restAssuredConfig).body(body).when().put(url, pathParams).prettyPeek().then();
-    }
-
-    protected ValidatableResponse deleteAndThen(String url, String... pathParams) {
-        return givenInternal().config(restAssuredConfig).when().delete(url, pathParams).prettyPeek().then();
-    }
-
-    protected ValidatableResponse deleteWithTokenAndThen(String token, String url, String... pathParams) {
-        return givenInternal(token).config(restAssuredConfig).when().delete(url, pathParams).prettyPeek().then();
-    }
-
     protected ValidatableResponse postAndThen(Object body, String url, String... pathParams) {
         return givenInternal().config(restAssuredConfig).body(body).when().post(url, pathParams).prettyPeek().then();
     }
 
-    protected ValidatableResponse postWithTokenAndThen(String token, Object body, String url, String... pathParams) {
-        return givenInternal(token).config(restAssuredConfig).body(body).when().post(url, pathParams).prettyPeek().then();
-    }
-
     private RequestSpecification givenInternal() {
-        return given().config(restAssuredConfig).header("X-Internal-Authorization", getToken()).contentType(ContentType.JSON);
+        return given().config(restAssuredConfig).contentType(ContentType.JSON);
     }
-
-    private RequestSpecification givenInternal(String token) {
-        return given().config(restAssuredConfig).header("X-Internal-Authorization", token).contentType(ContentType.JSON);
-    }
-
-    private String getToken() {
-        return "token";
-    }
-
-    public String getToken(String org) {
-        return getToken();
-    }
-
 }
