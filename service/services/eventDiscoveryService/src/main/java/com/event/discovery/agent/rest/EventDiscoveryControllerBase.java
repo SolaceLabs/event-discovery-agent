@@ -35,8 +35,6 @@ import java.util.concurrent.ExecutionException;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class EventDiscoveryControllerBase {
 
-    public int xyz;
-
     @ExceptionHandler({ExecutionException.class})
     @ResponseBody
     public ResponseEntity<ErrorDTO> handleExecutionException(Exception ex) {

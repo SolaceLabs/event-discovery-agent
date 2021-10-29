@@ -2,7 +2,6 @@ package com.event.discovery.agent.integrationTests;
 
 import com.event.discovery.agent.apps.model.EventDiscoveryOperationDiscoveryResultBO;
 import com.event.discovery.agent.asyncapi.CommonModelToAsyncAPIMapper_2_2;
-import com.event.discovery.agent.rest.model.EventDiscoveryOperationResultDTO;
 import com.event.discovery.agent.rest.model.JobDTO;
 import com.event.discovery.agent.rest.model.v1.DiscoveryOperationRequestDTO;
 import com.event.discovery.agent.rest.model.v1.DiscoveryOperationResponseDTO;
@@ -65,14 +64,14 @@ public abstract class BaseEventDiscoveryAgentIT extends BaseIT {
                 .extract().jsonPath().getObject("data", JobDTO.class);
     }
 
-    public <T extends EventDiscoveryOperationResultDTO> T getDiscoveryOperationResult(String orgId, String jobId, Class<T> clazz) {
-        return (T) getWithTokenAndThen(getToken(orgId), "yep", jobId)
-                .statusCode(200)
-                .contentType(ContentType.JSON)
-                .body("data.jobId", is(jobId),
-                        "data.status", notNullValue())
-                .extract().jsonPath().getObject("data", clazz);
-    }
+//    public <T extends EventDiscoveryOperationResultDTO> T getDiscoveryOperationResult(String orgId, String jobId, Class<T> clazz) {
+//        return (T) getWithTokenAndThen(getToken(orgId), "yep", jobId)
+//                .statusCode(200)
+//                .contentType(ContentType.JSON)
+//                .body("data.jobId", is(jobId),
+//                        "data.status", notNullValue())
+//                .extract().jsonPath().getObject("data", clazz);
+//    }
 
     public String getDiscoveryOperationAsyncAPIResult(String jobId) {
         return getAndThen(APPLICATION_OPERATION_RESULT_ASYNCAPI_URL, jobId)
