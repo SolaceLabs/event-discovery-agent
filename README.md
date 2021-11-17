@@ -64,3 +64,6 @@ See [motivations](./docs/motivations.md)
 ## Limitations
 
 See [limitations](./docs/limitations.md)
+
+## Contributors
+@gregmeldrum @OmarMostafa125 @jschabowsky @jessemenning
