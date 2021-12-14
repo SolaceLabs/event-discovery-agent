@@ -41,6 +41,7 @@ import org.apache.kafka.common.acl.AclBindingFilter;
 import org.apache.kafka.common.config.ConfigResource;
 import org.apache.kafka.common.errors.ClusterAuthorizationException;
 import org.apache.kafka.common.errors.SecurityDisabledException;
+import org.apache.kafka.common.errors.UnsupportedVersionException;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
@@ -400,6 +401,8 @@ public class KafkaCommon {
                 log.info("No Authorizer is configured on the broker");
             } else if (e.getCause() instanceof ClusterAuthorizationException) {
                 log.info("User '" + brokerAuthentication.getAdminUsername() + "' is not authorized to discover ACLs");
+            } else if (e.getCause() instanceof UnsupportedVersionException) {
+                log.info("Ignoring ACLs." + e.getMessage());
             } else {
                 throw e;
             }

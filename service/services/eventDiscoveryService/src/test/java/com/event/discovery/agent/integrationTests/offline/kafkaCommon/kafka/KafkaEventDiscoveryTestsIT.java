@@ -22,6 +22,7 @@ import org.apache.kafka.common.KafkaFuture;
 import org.apache.kafka.common.acl.AclBinding;
 import org.apache.kafka.common.errors.ClusterAuthorizationException;
 import org.apache.kafka.common.errors.SecurityDisabledException;
+import org.apache.kafka.common.errors.UnsupportedVersionException;
 import org.apache.kafka.common.internals.KafkaFutureImpl;
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
@@ -369,6 +370,27 @@ public class KafkaEventDiscoveryTestsIT extends KafkaCommonTestsIT {
 
         final JobDTO status = getDiscoveryOperationStatus(jobId);
         assertThat(status.getStatus(), is(JobStatus.ERROR));
+    }
+
+    @Test
+    public void testAclUnsupportedVersionHandledGracefully() throws Exception {
+        KafkaFuture<Collection<AclBinding>> future = new KafkaFutureImpl<>() {
+            @Override
+            public Collection<AclBinding> get() throws InterruptedException, ExecutionException {
+                throw new ExecutionException(new UnsupportedVersionException("The broker does not support DESCRIBE_ACLS"));
+            }
+        };
+
+        kafkaAdminClientMocks.configureDescribeAclResult(future);
+
+        DiscoveryOperationResponseDTO response = createEventListenerOperation(
+                kafkaConfigRequests.createDefaultKafkaEventDiscoveryRequest());
+
+        final String jobId = response.getJobId();
+        assertNotNull(jobId);
+
+        final JobDTO status = getDiscoveryOperationStatus(jobId);
+        assertThat(status.getStatus(), is(JobStatus.COMPLETED));
     }
 
     private void setSSLExpectedClientProperties(Map<String, Object> adminClientProps) {
