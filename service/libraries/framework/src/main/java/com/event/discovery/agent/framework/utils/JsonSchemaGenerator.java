@@ -112,7 +112,7 @@ public final class JsonSchemaGenerator {
                         path += node;
                     }
                     result.append(outputAsString(key + " schema", node.toString(), JsonNodeType.ARRAY, "", path, hasNext ? path : trimPath(path)));
-                    result.append(hasNext ? "}}," : "}}}");
+                    result.append(hasNext ? "}}," : "}}");
                 } else {
                     result.append("\"array\"");
                     result.append(hasNext ? "}," : "}");
