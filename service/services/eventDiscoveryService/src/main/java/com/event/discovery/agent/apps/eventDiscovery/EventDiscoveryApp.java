@@ -181,7 +181,12 @@ public abstract class EventDiscoveryApp implements DiscoveryApp, DiscoveryAppSb 
                 .filter(channel -> CommonModelConstants.Channel.TOPIC
                         .equals(channel.getAdditionalAttributes()
                                 .get(CommonModelConstants.Channel.TYPE)))
-                .collect(Collectors.toMap(Channel::getName, Function.identity()));
+                 .collect(Collectors.toMap(Channel::getName, Function.identity(), (a, b) -> {
+                     System.out.println("duplicate key found!");
+                     return a;
+                }
+        ));
+//                .collect(Collectors.toMap(Channel::getName, Function.identity()));
 
         Map<String, Schema> schemaMap = new HashMap<>();
 
