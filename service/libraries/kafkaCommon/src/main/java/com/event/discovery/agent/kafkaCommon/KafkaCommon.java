@@ -172,6 +172,12 @@ public class KafkaCommon {
                 properties.put("ssl.keystore.password", brokerAuthentication.getKeyStorePassword());
                 properties.put("ssl.key.password", brokerAuthentication.getKeyPassword());
             }
+
+            // DENNIS TO-DO
+            if (brokerAuthentication.getSslNoVerify() != null && brokerAuthentication.getSslNoVerify() == Boolean.TRUE) {
+                log.info("sslNoVerify requested; setting Broker SSL verification to false");
+                properties.put("ssl.endpoint.identification.algorithm", "");
+            }
         }
     }
 

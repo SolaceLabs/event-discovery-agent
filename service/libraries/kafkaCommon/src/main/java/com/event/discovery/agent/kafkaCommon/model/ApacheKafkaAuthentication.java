@@ -28,6 +28,7 @@ public class ApacheKafkaAuthentication extends NoAuthBrokerAuthentication implem
     private String keyStoreLocation;
     private String keyStorePassword;
     private String keyPassword;
+    private Boolean sslNoVerify;
 
     // SASL_GSSAPI
     private String principal;

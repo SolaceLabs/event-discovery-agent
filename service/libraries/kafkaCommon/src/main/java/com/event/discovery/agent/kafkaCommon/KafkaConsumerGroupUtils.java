@@ -173,6 +173,7 @@ public class KafkaConsumerGroupUtils {
                     kafkaCommon.getTopics().add(topicName);
                     kafkaCommon.addChannelTopicToMap(topicName);
                     getConsumerGroupsForTopicName(topicName);
+                    // log.info(String.format("getConsumerSubscriptions() -- #### MAPPED TOPIC NAME == %s ####", topicName));
                 });
 
     }
@@ -184,6 +185,7 @@ public class KafkaConsumerGroupUtils {
                     processActiveConsumer(topicName, cg);
                     // Check Inactive consumers
                     processInactiveConsumer(topicName, cg);
+                    // log.info(String.format("getConsumerGroupsForTopicName() -- #### MAPPED TOPIC NAME == %s ####", topicName));
                 });
     }
 
@@ -192,6 +194,7 @@ public class KafkaConsumerGroupUtils {
             for (ConsumerGroupOffset cgOffset : cg.getOffsets()) {
                 if (topicName.equals(cgOffset.getTopic())) {
                     addConsumerGroupToSubscriptionRelationship(topicName, cg.getGroupId());
+                    // log.info(String.format("processInactiveConsumer() -- #### MAPPED TOPIC NAME == %s ####", topicName));
                 }
             }
         }
@@ -204,6 +207,7 @@ public class KafkaConsumerGroupUtils {
                     for (com.event.discovery.agent.types.config.TopicPartition partition : member.getAssignment().getTopicPartitions()) {
                         if (topicName.equals(partition.getTopic())) {
                             addConsumerGroupToSubscriptionRelationship(topicName, cg.getGroupId());
+                            // log.info(String.format("processActiveConsumer() -- #### MAPPED TOPIC NAME == %s ####", topicName));
                         }
                     }
                 }

@@ -29,12 +29,18 @@ import com.event.discovery.agent.kafkaCommon.plugin.AbstractApacheKafkaPlugin;
 import com.event.discovery.agent.kafkaConfluent.model.ConfluentBrokerAuthentication;
 import com.event.discovery.agent.kafkaConfluent.model.ConfluentKafkaIdentity;
 import io.micrometer.core.instrument.MeterRegistry;
+import io.netty.handler.ssl.SslContext;
+import io.netty.handler.ssl.SslContextBuilder;
+import io.netty.handler.ssl.util.InsecureTrustManagerFactory;
 import lombok.extern.slf4j.Slf4j;
+import reactor.netty.http.client.HttpClient;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -44,6 +50,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import javax.net.ssl.SSLException;
 
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
@@ -75,12 +83,29 @@ public class ConfluentKafkaPlugin extends AbstractApacheKafkaPlugin implements S
                            DiscoveryOperation discoveryOperation) {
         super.initialize(brokerIdentity, brokerAuthentication, discoveryOperation);
         ConfluentBrokerAuthentication confluentBrokerAuthentication = (ConfluentBrokerAuthentication) brokerAuthentication;
-        if (confluentBrokerAuthentication.getSchemaRegistry() != null) {
-            ServiceAuthentication schemaRegistry = confluentBrokerAuthentication.getSchemaRegistry();
-            WebClientProperties webClientProperties = WebUtils.buildWebClientProperties(schemaRegistry);
-            webClient = webClientObjectProvider.getObject(webClientProperties);
+        if (        confluentBrokerAuthentication.getSchemaRegistry() != null
+                &&  confluentBrokerAuthentication.getSchemaRegistry().getTrustStoreLocation() != null
+                &&  confluentBrokerAuthentication.getSslNoVerify() != null
+                &&  confluentBrokerAuthentication.getSslNoVerify() == Boolean.TRUE) {
+            try {
+                log.warn("sslNoVerify requested; using InsecureTrustManagerFactory for schema registry connection");
+                SslContext sslContext = SslContextBuilder
+                        .forClient()
+                        .trustManager(InsecureTrustManagerFactory.INSTANCE)
+                        .build();
+                HttpClient httpClient = HttpClient.create().secure(t -> t.sslContext(sslContext));
+                webClient = WebClient.builder().clientConnector(new ReactorClientHttpConnector(httpClient)).build();
+            } catch ( SSLException sslexc ) {
+                log.error("Creation of Insecure SSL connection failed with mesage: %s", sslexc.getMessage());
+            }
         } else {
-            webClient = webClientObjectProvider.getObject(new WebClientProperties());
+            if (confluentBrokerAuthentication.getSchemaRegistry() != null) {
+                ServiceAuthentication schemaRegistry = confluentBrokerAuthentication.getSchemaRegistry();
+                WebClientProperties webClientProperties = WebUtils.buildWebClientProperties(schemaRegistry);
+                webClient = webClientObjectProvider.getObject(webClientProperties);
+            } else {
+                webClient = webClientObjectProvider.getObject(new WebClientProperties());
+            }
         }
     }
 
@@ -148,6 +173,8 @@ public class ConfluentKafkaPlugin extends AbstractApacheKafkaPlugin implements S
         WebClient.RequestHeadersSpec<?> partial = webClient.get()
                 .uri(schemaUrl);
         partial = WebUtils.addBasicAuthSecurity(partial, confluentBrokerAuthentication.getSchemaRegistry());
+        // DENNIS TO-DO
+        //partial = WebUtils.
         String subjectRaw = partial
                 .retrieve()
                 .bodyToMono(String.class)
@@ -186,6 +213,8 @@ public class ConfluentKafkaPlugin extends AbstractApacheKafkaPlugin implements S
         String uniqueEventName = topic;
 
         switch (subjectNameStrategy) {
+            case TOPIC:
+                break;
             case TOPIC_RECORD:
             case RECORD:
                 uniqueEventName = subject;
