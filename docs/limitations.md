@@ -1,5 +1,16 @@
 # Limitations
 
+## Interferences between the Discovery and Solace DTO features
+
+In the case where:
+1. Event brokers have DMRs or MNR networks
+2. The DTO feature is enabled and publishers and subscribers are on different nodes in the network
+3. The node that is used to collect Discovery data is not a publisher or subscriber node of the DTO topic
+
+Then subscribers would observe intermittent message losses. It would be difficult to troubleshoot as by the time administrators are notified of the issues, the Discovery agent would have finished its runs and the issues would have stopped.
+
+We therefore recommend not to use the Discovery 1.0 feature (event-discovery-agent) and the DTO feature concurrently.
+
 ## Apache Kafka Plugin
 * Only a single connector cluster can be specified.
 * Only the last message on each topic is examined for schema inference. It would be better to examine multiple messages to get more accurate representation of the event's schema.
