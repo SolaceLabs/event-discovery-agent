@@ -1,8 +1,10 @@
 ![Image of telescope](./docs/img/discovery.png)
 
-# Deprected, Use EP 2.0 EMA Instead (link below) --- Event Discovery Agent for Event Portal 1.0
+# Deprected, Use EP 2.0 EMA Instead (link below)
 
 [Click here for Event Portal 2.0 Event Management Agent](https://github.com/SolaceProducts/event-management-agent)
+
+# Event Discovery Agent for Event Portal 1.0
 
 Discover event streams flowing through a broker.
 
