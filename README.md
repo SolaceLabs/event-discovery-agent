@@ -1,6 +1,6 @@
 ![Image of telescope](./docs/img/discovery.png)
 
-# Deprected, Use EP 2.0 EMA Instead (link below)
+# Deprecated, Use EP 2.0 EMA Instead (link below)
 
 [Click here for Event Portal 2.0 Event Management Agent](https://github.com/SolaceProducts/event-management-agent)
 
